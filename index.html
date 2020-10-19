@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,39 +8,45 @@
     <link rel="stylesheet" href="./Assets/style.css">
     <title>Bootcamp Quiz!</title>
 </head>
+
 <body>
-     
+
     <!-- this is the menu at the top of the page, should include the timer at the end -->
     <nav class="navbar navbar-expand-lg navbar-light bg-info">
-        <a class="navbar-brand" href="#">Bootcamp Quiz!</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <a class="navbar-brand" href="./index.html">Bootcamp Quiz!</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">View High Scores</a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <h3 id="timer"></h3>
-          </form>
-        </div>
-      </nav>
 
-      <!-- this will display main content -->
-      <main>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">View High Scores</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <h3 id="timer"></h3>
+            </form>
+        </div>
+    </nav>
+
+    <!-- this will display main content -->
+    <main>
 
         <div class="jumbotron">
             <h1 class="display-4">Hello, Coder!</h1>
-            <p class="lead">Test your knowledge on programming by completing the following quiz. 
-                Track your progress over time by viewing your high scores. 
+            <p class="lead">Test your knowledge on programming by completing the following quiz.
+                You'll have 60 seconds to answer as many questions as possible.
+                If you answer incorrectly, the timer will deduct seconds.
+                Once you have finished the quiz,
+                or your timer ends, your score will be displayed.
+                Track your progress by viewing your high scores.
             </p>
             <hr class="my-8">
-            <p>Click below to start.</p>
-            <a class="btn btn-dark btn-md" href="#" role="button">Begin Quiz!</a>
-          </div>
+            <p>Ready, Set ...</p>
+            <a id="begin" class="btn btn-dark btn-md" href="#" role="button">Begin Quiz!</a>
+        </div>
         <!-- possible button option -->
         <!-- <div class="btn-group-vertical">
         <button type="submit" class="btn-sm btn-info">Answer 1</button>
@@ -47,14 +54,15 @@
         <button type="submit" class="btn-sm btn-info">Answer 3</button>
         <button type="submit" class="btn-sm btn-info">Answer 4</button>
         </div> -->
-        
-
-        
 
 
 
-      </main>
+
+
+
+    </main>
 
     <script src="./app.js"></script>
 </body>
+
 </html>
