@@ -20,6 +20,13 @@ function countdown() {
     }, 1000) //1,000 runs it every second
 }
 // called the function
-countdown();
+// countdown();
+
+
+// create a main page which when clicks starts, begins timer and asks questions
+// save each answer score to local storage and later on get it to display as highscore
+// create option buttons
+// create questions and then display if they were wrong or right 
+
 
 
