@@ -3,8 +3,8 @@ let beginBtn = document.querySelector("#begin");
 
 // when the button is clicked it runs the function countdown() which starts the timer
 beginBtn.addEventListener("click", function () {
-    console.log("begin quiz");
     countdown();
+    quiz();
 });
 
 
@@ -23,20 +23,27 @@ function countdown() {
     let time = setInterval(function () {
         // countdown count -1
         count--
-        console.log(count)
         // this 
         timer.textContent = (`Timer: ${count}s`);
         if (count === 50) {
-            console.log("stop here")
             clearInterval(time)
         }
     }, 1000) //1,000 runs it every second
 }
-// called the function
-// countdown();
+
+function quiz() {
+    let questions = document.querySelector("#text1")
+console.log(questions);
+
+questions.textContent = "Question 1";
+}
+
 
 //  when displaying score might need to use <span> to affect only the score and not the entire element
- 
+//  create a function for questions with if and else statements and call it at the click function
+// refer to WebApi activity 22 Local Storage Uh oh
+
+
 
 // WHEN I click the start button
 // THEN a timer starts and I am presented with a question
