@@ -1,6 +1,37 @@
-
-// this targets the h3 which will eventually display a timer
+// target the necessary elements
+let beginBtn = document.querySelector("#begin");
+let number1 = document.querySelector("#text1");
+let jumbo = document.querySelector(".jumbotron");
+let question = document.querySelector("#text2");
 let timer = document.querySelector("#timer");
+///////////////////////////////////////////////////////////////
+// styled groups and buttons 
+// create a div with bootstrap properties that make buttons vertical
+let btnGroup = document.createElement("div");
+btnGroup.setAttribute("class", "btn-group-vertical")
+// create buttons and give them bootstrap style
+let option1 = document.createElement("button");
+option1.setAttribute("type", "submit")
+option1.setAttribute("class", "btn-sm btn-info")
+let option2 = document.createElement("button");
+option2.setAttribute("type", "submit")
+option2.setAttribute("class", "btn-sm btn-info")
+let option3 = document.createElement("button");
+option3.setAttribute("type", "submit")
+option3.setAttribute("class", "btn-sm btn-info")
+let option4 = document.createElement("button");
+option4.setAttribute("type", "submit")
+option4.setAttribute("class", "btn-sm btn-info")
+
+
+
+// when the button is clicked it runs the function countdown() which starts the timer
+beginBtn.addEventListener("click", function () {
+    countdown();
+    displayQuest();
+});
+
+
 
 // timer begins at 60 seconds
 let count = 61
@@ -20,38 +51,61 @@ function countdown() {
     }, 1000) //1,000 runs it every second
 }
 
+let quiz = [{
+        question: ["Commonly used data types DO NOT include:"],
+        options: ["1. Strings", "2. Booleans", "3. Alerts", "4. Numbers"],
+        answer: "3. Alerts",
+    },
 
-function quest1() {
-    // change the look of the area
-    let jumbo = document.querySelector(".jumbotron");
+    {
+        question: ["The condition in an if/else statement is enclosed within ____"],
+        options: ["1. quotes", "2. curly brackets", "3. parenthesis", "4. square brackets"],
+        answer: "3. parenthesis",
+    },
+
+    {
+        question: ["Arrays on Javascript can be used to store _____"],
+        options: ["1. numbers and strings", "2. other arrays", "3. booleans", "4. all of the above"],
+        answer: "4. all of the above",
+    }
+
+
+]
+
+// console.log(quiz[1].question)
+// correct way to console.log for objects
+// console.log(quiz[0].answer, quiz[0].question, quiz[0].options);
+
+
+function displayQuest() {
+    // hide elements after clicking begin quiz
+    beginBtn.style.display = "none";
+    number1.style.display = "none";
+
     jumbo.setAttribute("class", "jumbotron-new");
 
-    // target the id and change the content
-    let number1 = document.querySelector("#text1");
-    number1.textContent = "Question 1";
+    jumbo.appendChild(btnGroup);
 
-    // target the id and change the content
-    let question = document.querySelector("#text2");
-    question.textContent = "Commonly used data types DO NOT include:"
-
-    // create button and give it bootstrap style
-    let option1 = document.createElement("button");
+    btnGroup.appendChild(option1);
     option1.textContent = "1. Strings";
-    option1.setAttribute("type", "submit")
-    option1.setAttribute("class", "btn-sm btn-info")
-    console.log(option1);
-    jumbo.appendChild(option1);
 
+    btnGroup.appendChild(option2);
+    option2.textContent = "2. Booleans";
+
+    btnGroup.appendChild(option3);
+    option3.textContent = "3. Alerts";
+
+    btnGroup.appendChild(option4);
+    option4.textContent = "4. Numbers";
+
+    for (let i = 0; i < quiz.length; i++) {
+        let currentQ = quiz[i].question;
+        question.textContent = currentQ;
+        console.log(currentQ);
+    }
 }
 
-// target the button that begins quiz
-let beginBtn = document.querySelector("#begin");
 
-// when the button is clicked it runs the function countdown() which starts the timer
-beginBtn.addEventListener("click", function () {
-    countdown();
-    quest1();
-});
 
 
 //  when displaying score might need to use <span> to affect only the score and not the entire element
@@ -73,4 +127,3 @@ beginBtn.addEventListener("click", function () {
 // THEN the game is over
 // WHEN the game is over
 // THEN I can save my initials and score
-
