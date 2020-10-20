@@ -2,7 +2,7 @@
 let beginBtn = document.querySelector("#begin");
 let number1 = document.querySelector("#text1");
 let jumbo = document.querySelector(".jumbotron");
-let question = document.querySelector("#text2");
+let quizQuestion = document.querySelector("#text2");
 let timer = document.querySelector("#timer");
 ///////////////////////////////////////////////////////////////
 // styled groups and buttons 
@@ -38,6 +38,8 @@ let count = 61
 // score begins at 0
 let score = 0
 
+let currentQuestion = 0
+
 // this function when called will start a timer at 60 counting down every second
 function countdown() {
     let time = setInterval(function () {
@@ -51,31 +53,46 @@ function countdown() {
     }, 1000) //1,000 runs it every second
 }
 
+
+
 let quiz = [{
-        question: ["Commonly used data types DO NOT include:"],
+        question: "Commonly used data types DO NOT include:",
         options: ["1. Strings", "2. Booleans", "3. Alerts", "4. Numbers"],
         answer: "3. Alerts",
     },
 
     {
-        question: ["The condition in an if/else statement is enclosed within ____"],
+        question: "The condition in an if/else statement is enclosed within ____.",
         options: ["1. quotes", "2. curly brackets", "3. parenthesis", "4. square brackets"],
         answer: "3. parenthesis",
     },
 
     {
-        question: ["Arrays on Javascript can be used to store _____"],
+        question: "Arrays on Javascript can be used to store _____.",
         options: ["1. numbers and strings", "2. other arrays", "3. booleans", "4. all of the above"],
         answer: "4. all of the above",
+    },
+
+    {
+        question: "String values must be enclosed within _____ when being assigned to variables.",
+        options: ["1. commas", "2. curly brackets", "3. quotes", "4. parenthesis"],
+        answer: "3. quotes",
+    },
+
+    {
+        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        options: ["1. javascript", "2. terminal/bash", "3. for loops", "4. console log"],
+        answer: "4. console log",
     }
 
 
 ]
 
-// console.log(quiz[1].question)
+// console.log(quiz[0].question)
 // correct way to console.log for objects
 // console.log(quiz[0].answer, quiz[0].question, quiz[0].options);
-
+let buttons = [option1, option2, option3, option4];
+// console.log(buttons.length);
 
 function displayQuest() {
     // hide elements after clicking begin quiz
@@ -87,26 +104,29 @@ function displayQuest() {
     jumbo.appendChild(btnGroup);
 
     btnGroup.appendChild(option1);
-    option1.textContent = "1. Strings";
 
     btnGroup.appendChild(option2);
-    option2.textContent = "2. Booleans";
 
     btnGroup.appendChild(option3);
-    option3.textContent = "3. Alerts";
 
     btnGroup.appendChild(option4);
-    option4.textContent = "4. Numbers";
 
-    for (let i = 0; i < quiz.length; i++) {
-        let currentQ = quiz[i].question;
-        question.textContent = currentQ;
-        console.log(currentQ);
+    // currentQuestion begins at 0 so quest = quiz[0] first object
+    let quest = quiz[currentQuestion];
+    // console.log(quest);
+    quizQuestion.textContent = quest.question;
+
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].textContent = quest.options[i];
+        buttons[i].addEventListener("click", check)
     }
+
 }
 
 
-
+function check() {
+    console.log("you clicked on an option ")
+}
 
 //  when displaying score might need to use <span> to affect only the score and not the entire element
 //  create a function for questions with if and else statements and call it at the click function
