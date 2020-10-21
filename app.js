@@ -47,8 +47,9 @@ function countdown() {
         count--
         // this 
         timer.textContent = (`Timer: ${count}s`);
-        if (count === 55) {
+        if (count === 0) {
             clearInterval(time)
+            end()
         }
     }, 1000) //1,000 runs it every second
 }
@@ -121,13 +122,32 @@ function displayQuest() {
         buttons[i].addEventListener("click", check)
     }
 
+    
 }
-
 
 function check() {
-    console.log("you clicked on an option ")
+    let playerAns = this.textContent;
+    console.log(playerAns);
+
+    if (playerAns === quiz[currentQuestion].answer) {
+        console.log("correct");
+    } else {
+        console.log("incorrect");
+        count -= 10;
+    } 
+
+    currentQuestion++;
+    if (currentQuestion < quiz.length) {
+        displayQuest();
+    } else {
+        end()
+    }
 }
 
+function end() {
+    console.log("game over");
+
+}
 //  when displaying score might need to use <span> to affect only the score and not the entire element
 //  create a function for questions with if and else statements and call it at the click function
 // refer to WebApi activity 22 Local Storage Uh oh
