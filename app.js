@@ -177,9 +177,14 @@ function end() {
   initials.addEventListener("submit", function(e){
     //   added prevent default, but might not need it
       e.preventDefault()
-      console.log("Hello");
-  })
+      let userInitials = userInput.value;
+    //   save players initials
+      window.localStorage.setItem("Initials", userInitials);
+    //   save players score
+      window.localStorage.setItem("score", score);
 
+  })
+    
 }
 //  when displaying score might need to use <span> to affect only the score and not the entire element
 //  create a function for questions with if and else statements and call it at the click function
