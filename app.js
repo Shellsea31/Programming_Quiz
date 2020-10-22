@@ -24,13 +24,16 @@ let option4 = document.createElement("button");
 option4.setAttribute("type", "submit");
 option4.setAttribute("class", "btn-sm btn-info");
 let initials = document.createElement("form");
-initials.setAttribute("id", "inputForm")
+initials.setAttribute("id", "inputForm");
 let userInput = document.createElement("input");
 userInput.setAttribute("type", "text");
-userInput.setAttribute("placeholder", "Enter initials")
-let userSubmit = document.createElement("input")
+userInput.setAttribute("placeholder", "Enter initials");
+let userSubmit = document.createElement("input");
 userSubmit.setAttribute("value", "Submit");
-userSubmit.setAttribute("type", "submit")    
+userSubmit.setAttribute("type", "submit");
+let endOptions = document.createElement("div")
+let backBtn = document.createElement("button");
+backBtn.setAttribute("class", "btn btn-info btn-md");
 
 // when the button is clicked it runs the function countdown() which starts the timer
 beginBtn.addEventListener("click", function () {
@@ -39,9 +42,10 @@ beginBtn.addEventListener("click", function () {
 });
 
 // timer begins at 60 seconds
-let count = 61;
+let count = 90;
 // score begins at 0
-let score = "this is your score";
+let score = 0;
+let timesPlayed = "";
 
 let currentQuestion = 0;
 
@@ -52,7 +56,7 @@ function countdown() {
     count--;
     // this
     timer.textContent = `Timer: ${count}s`;
-    if (count === 55) {
+    if (count === 0) {
       clearInterval(time);
       end();
     }
@@ -140,14 +144,18 @@ function displayQuest() {
     buttons[i].textContent = quest.options[i];
     buttons[i].addEventListener("click", check);
   }
+
+ 
+
 }
 
 function check() {
   let playerAns = this.textContent;
-  console.log(playerAns);
 
   if (playerAns === quiz[currentQuestion].answer) {
     console.log("correct");
+    score = score + 5;
+    console.log(score);
   } else {
     console.log("incorrect");
     count -= 10;
@@ -169,22 +177,40 @@ function end() {
   option4.style.display = "none";
   number1.style.display = "";
   number1.textContent = "All Done!";
-  quizQuestion.textContent = `Your final score is ${score}.`;
-  quizQuestion.appendChild(initials)
+  quizQuestion.textContent = `Your final score is: ${score}.`;
+  quizQuestion.appendChild(initials);
   initials.appendChild(userInput);
   initials.appendChild(userSubmit);
 
-  initials.addEventListener("submit", function(e){
+  initials.addEventListener("submit", function (e) {
     //   added prevent default, but might not need it
-      e.preventDefault()
-      let userInitials = userInput.value;
+    e.preventDefault();
+    let userInitials = userInput.value;
     //   save players initials
-      window.localStorage.setItem("Initials", userInitials);
+    window.localStorage.setItem("initials", userInitials);
     //   save players score
-      window.localStorage.setItem("score", score);
+    window.localStorage.setItem("score", score);
 
+    displayScore();
+  });
+}
+
+
+
+function displayScore() {
+  let getInitials = window.localStorage.getItem("initials");
+  let getScore = window.localStorage.getItem("score");
+  number1.textContent = "Highscores";
+  
+  quizQuestion.textContent = (`${timesPlayed}. ${getInitials} - ${getScore}`);
+  jumbo.appendChild(endOptions);
+  backBtn.textContent = "Go Back";
+  endOptions.appendChild(backBtn);
+
+  backBtn.addEventListener("click", function(){
+      
   })
-    
+
 }
 //  when displaying score might need to use <span> to affect only the score and not the entire element
 //  create a function for questions with if and else statements and call it at the click function
