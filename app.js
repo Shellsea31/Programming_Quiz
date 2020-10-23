@@ -59,7 +59,6 @@ let currentQuestion = 0;
 function countdown() {
   // countdown count -1
   count--;
-  // this
   timer.textContent = `Timer: ${count}s`;
   if (count === 0) {
     timer.textContent = `Timer: 0s`;
@@ -116,11 +115,9 @@ let quiz = [
   },
 ];
 
-// console.log(quiz[0].question)
-// correct way to console.log for objects
-// console.log(quiz[0].answer, quiz[0].question, quiz[0].options);
+
 let buttons = [option1, option2, option3, option4];
-// console.log(buttons.length);
+
 
 function displayQuest() {
   // hide elements after clicking begin quiz
@@ -141,7 +138,6 @@ function displayQuest() {
 
   // currentQuestion begins at 0 so quest = quiz[0] first object
   let quest = quiz[currentQuestion];
-  // console.log(quest);
   quizQuestion.textContent = quest.question;
 
   for (let i = 0; i < buttons.length; i++) {
@@ -154,11 +150,8 @@ function check() {
   let playerAns = this.textContent;
 
   if (playerAns === quiz[currentQuestion].answer) {
-    console.log("correct");
     score = score + 5;
-    console.log(score);
   } else {
-    console.log("incorrect");
     count -= 10;
   }
 
@@ -186,7 +179,6 @@ function end() {
   initials.appendChild(userSubmit);
 
   initials.addEventListener("submit", function (e) {
-    //   added prevent default, but might not need it
     e.preventDefault();
     let userInitials = userInput.value;
 
@@ -196,7 +188,7 @@ function end() {
     };
 
     playerScores.push(player);
-    //   save players initials
+    
     window.localStorage.setItem("player-score", JSON.stringify(playerScores));
 
     displayScore();
@@ -204,7 +196,6 @@ function end() {
 }
 
 function displayScore() {
-//   let getInitials = window.localStorage.getItem("initials");
   number1.textContent = "Highscores";
 
   quizQuestion.textContent = "";
@@ -215,7 +206,7 @@ function displayScore() {
 
       quizQuestion.append(element, space);
   }
-//   quizQuestion.textContent = `${timesPlayed}. ${getInitials} - ${getScore}`;
+
   jumbo.appendChild(endOptions);
   backBtn.textContent = "Go Back";
   endOptions.appendChild(backBtn);
@@ -225,21 +216,4 @@ function displayScore() {
   });
 }
 
-// highScores.addEventListener("click", displayScore());
-//  when displaying score might need to use <span> to affect only the score and not the entire element
-//  create a function for questions with if and else statements and call it at the click function
-// refer to WebApi activity 22 Local Storage Uh oh
-// use remove() - searched the web :)
-// you might need to add values to each question and push them to an array
-// then add the items in the array to get the high score.
 
-// WHEN I click the start button
-// THEN a timer starts and I am presented with a question
-// WHEN I answer a question
-// THEN I am presented with another question
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
-// WHEN the game is over
-// THEN I can save my initials and score
