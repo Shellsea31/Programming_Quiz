@@ -31,18 +31,24 @@ userInput.setAttribute("placeholder", "Enter initials");
 let userSubmit = document.createElement("input");
 userSubmit.setAttribute("value", "Submit");
 userSubmit.setAttribute("type", "submit");
-let endOptions = document.createElement("div")
+let endOptions = document.createElement("div");
 let backBtn = document.createElement("button");
 backBtn.setAttribute("class", "btn btn-info btn-md");
+let highScores = document.querySelector("#highScores");
+
+let playerScores = JSON.parse(window.localStorage.getItem("player-score")) || [];
+
+let time;
 
 // when the button is clicked it runs the function countdown() which starts the timer
 beginBtn.addEventListener("click", function () {
-  countdown();
+  time = setInterval(countdown, 1000);
   displayQuest();
 });
 
 // timer begins at 60 seconds
-let count = 90;
+let count = 60;
+
 // score begins at 0
 let score = 0;
 let timesPlayed = "";
@@ -51,16 +57,14 @@ let currentQuestion = 0;
 
 // this function when called will start a timer at 60 counting down every second
 function countdown() {
-  let time = setInterval(function () {
-    // countdown count -1
-    count--;
-    // this
-    timer.textContent = `Timer: ${count}s`;
-    if (count === 0) {
-      clearInterval(time);
-      end();
-    }
-  }, 1000); //1,000 runs it every
+  // countdown count -1
+  count--;
+  // this
+  timer.textContent = `Timer: ${count}s`;
+  if (count === 0) {
+    timer.textContent = `Timer: 0s`;
+    end();
+  }
 }
 
 let quiz = [
@@ -122,7 +126,7 @@ function displayQuest() {
   // hide elements after clicking begin quiz
   beginBtn.style.display = "none";
   number1.style.display = "none";
-
+  quizQuestion.innerHTML = "";
   jumbo.setAttribute("class", "jumbotron-new");
 
   jumbo.appendChild(btnGroup);
@@ -144,9 +148,6 @@ function displayQuest() {
     buttons[i].textContent = quest.options[i];
     buttons[i].addEventListener("click", check);
   }
-
- 
-
 }
 
 function check() {
@@ -171,6 +172,8 @@ function check() {
 
 // when the game ends, player can add their initials and see high scores
 function end() {
+  clearInterval(time);
+  timer.textContent = `Timer: 0s`;
   option1.style.display = "none";
   option2.style.display = "none";
   option3.style.display = "none";
@@ -186,32 +189,43 @@ function end() {
     //   added prevent default, but might not need it
     e.preventDefault();
     let userInitials = userInput.value;
+
+    let player = {
+        user: userInitials,
+        score: score,
+    };
+
+    playerScores.push(player);
     //   save players initials
-    window.localStorage.setItem("initials", userInitials);
-    //   save players score
-    window.localStorage.setItem("score", score);
+    window.localStorage.setItem("player-score", JSON.stringify(playerScores));
 
     displayScore();
   });
 }
 
-
-
 function displayScore() {
-  let getInitials = window.localStorage.getItem("initials");
-  let getScore = window.localStorage.getItem("score");
+//   let getInitials = window.localStorage.getItem("initials");
   number1.textContent = "Highscores";
-  
-  quizQuestion.textContent = (`${timesPlayed}. ${getInitials} - ${getScore}`);
+
+  quizQuestion.textContent = "";
+
+  for (let i = 0; i < playerScores.length; i++) {
+      let element = `${i+1}. ${playerScores[i].user} - ${playerScores[i].score}`;
+      let space = document.createElement("br");
+
+      quizQuestion.append(element, space);
+  }
+//   quizQuestion.textContent = `${timesPlayed}. ${getInitials} - ${getScore}`;
   jumbo.appendChild(endOptions);
   backBtn.textContent = "Go Back";
   endOptions.appendChild(backBtn);
 
-  backBtn.addEventListener("click", function(){
-      
-  })
-
+  backBtn.addEventListener("click", function () {
+      window.location.reload();
+  });
 }
+
+// highScores.addEventListener("click", displayScore());
 //  when displaying score might need to use <span> to affect only the score and not the entire element
 //  create a function for questions with if and else statements and call it at the click function
 // refer to WebApi activity 22 Local Storage Uh oh
