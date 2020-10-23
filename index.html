@@ -1,64 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./Assets/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./Assets/style.css" />
     <title>Bootcamp Quiz!</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <!-- this is the menu at the top of the page, should include the timer at the end -->
     <nav class="navbar navbar-expand-lg navbar-light bg-info">
-        <a class="navbar-brand" href="./index.html">Bootcamp Quiz!</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+      <a class="navbar-brand" href="./index.html">Bootcamp Quiz!</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a id="highScores"class="nav-link" onclick="displayScore()">View High Scores</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <h3 id="timer"></h3>
-            </form>
-        </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a id="highScores" class="nav-link" onclick="displayScore()"
+              >View High Scores</a
+            >
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <h3 id="timer"></h3>
+        </form>
+      </div>
     </nav>
 
     <!-- this will display main content -->
     <main>
-        <br>
-        <br>
-        <div class="jumbotron">
-            <h1 id="text1" class="display-4">Hello, Coder!</h1>
-            <p id="text2" class="lead">Test your knowledge on programming by completing the following quiz.
-                You'll have 60 seconds to answer as many questions as possible.
-                If you answer incorrectly, the timer will deduct seconds.
-                Once you have finished the quiz,
-                or your timer ends, your score will be displayed.
-                Track your progress by viewing your high scores.
-            </p>
-            <hr class="my-8">
-            <a id="begin" class="btn btn-dark btn-md" href="#" role="button">Begin Quiz!</a>
-        </div>
+      <br />
+      <br />
+      <div class="jumbotron">
+        <h1 id="text1" class="display-4">Hello, Coder!</h1>
+        <p id="text2" class="lead">
+          Test your knowledge on programming by completing the following quiz.
+          You'll have 60 seconds to answer as many questions as possible. If you
+          answer incorrectly, the timer will deduct seconds. Once you have
+          finished the quiz, or your timer ends, your score will be displayed.
+          Track your progress by viewing your high scores.
+        </p>
+        <hr class="my-8" />
+        <a id="begin" class="btn btn-dark btn-md" href="#" role="button"
+          >Begin Quiz!</a
+        >
+      </div>
 
-        <!-- possible button option -->
-
-
-
-
-
-
-
+      <!-- possible button option -->
     </main>
 
     <script src="./app.js"></script>
-</body>
-
+  </body>
 </html>

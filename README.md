@@ -1,91 +1,39 @@
 # 04 Web APIs: Code Quiz
 
-## Your Task
+## Description
 
-As you proceed in your journey to becoming a full-stack web developer, it’s likely that you’ll be asked to complete a coding assessment, perhaps as part of an interview process. A typical coding assessment is a combination of multiple-choice questions and interactive coding challenges. 
+This week my assignment was to create a quiz that included:
 
-To help you become familiar with these tests and give you a chance to apply the skills from this module, this week’s homework invites you to build a timed coding quiz with multiple-choice questions. This app will run in the browser, and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean, polished, and responsive user interface. This week’s coursework will teach you all the skills you need to succeed in this assignment.
+* a timer
+* multiple choices for each question
+* deduction on incorrect answers
+* storage of user initials and scores
 
-
-## User Story
-
-```
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
-
-
-## Acceptance Criteria
-
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
-```
+I had a lot of fun styling the page with Bootstrap. Most if not all mechanics where written in Javascript. 
+Using for loops, functions, methods, if statements, arrays, and objects I was able to present the user with 5 questions
+and 4 answers to each. When the user selected an answer, they were presented with a new questions and so on. The player is also
+able to save their high scores by submitting their initials. Because their scores are saved to local storage they may keep track 
+of their progress. Javascript Object Notation played a mayor role in saving the scores for multiple users. 
 
 
-## Mock-Up
+## Screenshots
 
-The following animation demonstrates the application functionality:
+![quiz_1](https://user-images.githubusercontent.com/70654835/96961668-011bbe00-14ba-11eb-8c6a-f62e13686996.png)
 
-![code quiz](./Assets/04-web-apis-homework-demo.gif)
+![quiz_2](https://user-images.githubusercontent.com/70654835/96961751-2dcfd580-14ba-11eb-8b50-e50dee8588ba.png)
 
+![quiz_3](https://user-images.githubusercontent.com/70654835/96961773-358f7a00-14ba-11eb-959a-721c2b38e9f4.png)
 
-## Grading Requirements
+![quiz_4](https://user-images.githubusercontent.com/70654835/96961778-37f1d400-14ba-11eb-9555-e64fca5682dc.png)
 
-This homework is graded based on the following criteria: 
+## Demo
 
-### Technical Acceptance Criteria: 40%
+Take a wack at the quiz by clicking [here](https://shellsea31.github.io/Programming_Quiz/)
 
-* Satisfies all of the above acceptance criteria.
+ #### Contributors
 
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository that contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the homework instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality README file with description, screenshot, and link to deployed application.
-
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2020 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+ **Shelsy Barrera**
+ * Github: Shellsea31
+ * Gitlab: @Shellsea
+ * LinkedIn: Shelsy Barrera
+ * Email: elainesbarrera@gmail.com

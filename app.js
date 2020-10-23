@@ -36,7 +36,8 @@ let backBtn = document.createElement("button");
 backBtn.setAttribute("class", "btn btn-info btn-md");
 let highScores = document.querySelector("#highScores");
 
-let playerScores = JSON.parse(window.localStorage.getItem("player-score")) || [];
+let playerScores =
+  JSON.parse(window.localStorage.getItem("player-score")) || [];
 
 let time;
 
@@ -115,9 +116,7 @@ let quiz = [
   },
 ];
 
-
 let buttons = [option1, option2, option3, option4];
-
 
 function displayQuest() {
   // hide elements after clicking begin quiz
@@ -183,12 +182,12 @@ function end() {
     let userInitials = userInput.value;
 
     let player = {
-        user: userInitials,
-        score: score,
+      user: userInitials,
+      score: score,
     };
 
     playerScores.push(player);
-    
+
     window.localStorage.setItem("player-score", JSON.stringify(playerScores));
 
     displayScore();
@@ -201,10 +200,12 @@ function displayScore() {
   quizQuestion.textContent = "";
 
   for (let i = 0; i < playerScores.length; i++) {
-      let element = `${i+1}. ${playerScores[i].user} - ${playerScores[i].score}`;
-      let space = document.createElement("br");
+    let element = `${i + 1}. ${playerScores[i].user} - ${
+      playerScores[i].score
+    }`;
+    let space = document.createElement("br");
 
-      quizQuestion.append(element, space);
+    quizQuestion.append(element, space);
   }
 
   jumbo.appendChild(endOptions);
@@ -212,8 +213,6 @@ function displayScore() {
   endOptions.appendChild(backBtn);
 
   backBtn.addEventListener("click", function () {
-      window.location.reload();
+    window.location.reload();
   });
 }
-
-
